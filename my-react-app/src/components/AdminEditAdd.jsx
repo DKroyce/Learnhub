@@ -28,7 +28,7 @@ export default function AdminEdit() {
     try{
       const token = localStorage.getItem("token");
     console.log("Retrieved token:", token);
-      const response= await axios.post("https://api-gateway-lh.onrender.com/admin/ebooks", ebook,{
+      const response= await axios.post("http://localhost:8765/admin/ebooks", ebook,{
           headers: {
             Authorization: `Bearer ${token}`
           }

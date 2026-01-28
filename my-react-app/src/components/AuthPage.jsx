@@ -25,7 +25,7 @@ export default function AuthPage() {
      event.preventDefault();   
 
     const response = await axios.post(
-      "https://api-gateway-lh.onrender.com/auth/login",
+      "http://localhost:8765/auth/login",
       {
         username: username,
         password: password
@@ -69,7 +69,7 @@ const handlesignup=async()=>{
   try {
      event.preventDefault();
     const response = await axios.post(
-      "https://api-gateway-lh.onrender.com/auth/register",
+      "http://localhost:8765/auth/register",
        {
         username: username2,
         password: password2

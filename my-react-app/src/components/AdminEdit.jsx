@@ -63,7 +63,7 @@ export default function AdminEdit() {
     try {
       const token = localStorage.getItem("token");
     console.log("Retrieved token:", token);
-      const response = await axios.get(`https://api-gateway-lh.onrender.com/admin/ebooks/${prodid}`, {
+      const response = await axios.get(`http://localhost:8765/admin/ebooks/${prodid}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -82,7 +82,7 @@ const handleUpdate =async (event) => {
     try{
       const token = localStorage.getItem("token");
     console.log("Retrieved token:", token);
-      const response= await axios.put(`https://api-gateway-lh.onrender.com/admin/ebooks/${prodid}`, ebook,{
+      const response= await axios.put(`http://localhost:8765/admin/ebooks/${prodid}`, ebook,{
           headers: {
             Authorization: `Bearer ${token}`
           }

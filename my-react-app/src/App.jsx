@@ -11,7 +11,7 @@ import AdminEdit from './components/AdminEdit'
 import AdminEditAdd from './components/AdminEditAdd'
 import ViewCoursePage from './components/ViewCoursePage'
 import EbookHorizontalCard from './components/EbookHorizontalCard'
-function App() {
+function App() {[1]
 
 
   return (

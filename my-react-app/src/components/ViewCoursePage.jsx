@@ -82,7 +82,7 @@ export default function ViewCoursePage() {
     console.log("Retrieved token:", token);
 
     const response = await axios.get(
-      `https://api-gateway-lh.onrender.com/user/ebooks/${prodid}/download`,
+      `http://localhost:8765/user/ebooks/${prodid}/download`,
       {
         headers: {
           Authorization: `Bearer ${token}`
@@ -99,7 +99,7 @@ const fetchebooksWrappper = async () => {
     try {
       const token = localStorage.getItem("token");
     console.log("Retrieved token:", token);
-      const response = await axios.get(`https://api-gateway-lh.onrender.com/user/ebooks/${prodid}`, {
+      const response = await axios.get(`http://localhost:8765/user/ebooks/${prodid}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -118,7 +118,7 @@ const fetchebooksWrappper = async () => {
     try {
       const token = localStorage.getItem("token");
     console.log("Retrieved token:", token);
-      const response = await axios.get(`https://api-gateway-lh.onrender.com/user/ebooks/${prodid}/detail`, {
+      const response = await axios.get(`http://localhost:8765/user/ebooks/${prodid}/detail`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -134,7 +134,7 @@ const fetchebooksWrappper = async () => {
     const token = localStorage.getItem("token");
 
     const downloadRes = await axios.get(
-      `https://api-gateway-lh.onrender.com/user/ebooks/${ebook.id}/fileurl`,
+      `http://localhost:8765/user/ebooks/${ebook.id}/fileurl`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -176,7 +176,7 @@ const token = localStorage.getItem("token");
 
     const handlePayment = () => {
 
-axios.post("https://api-gateway-lh.onrender.com/payment/create-order", {
+axios.post("http://localhost:8765/payment/create-order", {
   amount:ebook.discountPrice * 100,
   currency: "INR"
 },{
@@ -205,7 +205,7 @@ axios.post("https://api-gateway-lh.onrender.com/payment/create-order", {
 
  
         axios
-          .post("https://api-gateway-lh.onrender.com/payment/verify", {
+          .post("http://localhost:8765/payment/verify", {
             razorpay_order_id: response.razorpay_order_id,
             razorpay_payment_id: response.razorpay_payment_id,
             razorpay_signature: response.razorpay_signature,

@@ -59,7 +59,7 @@ const getEbooks = async () => {
 const token = localStorage.getItem("token");
     console.log("Retrieved token:", token);
       const response = await axios.get(
-        "https://api-gateway-lh.onrender.com/admin/ebooks",
+        "http://localhost:8765/admin/ebooks",
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -79,7 +79,7 @@ setEbooks(response.data);
     try{
       const token = localStorage.getItem("token");
     console.log("Retrieved token:", token);
-      const response= await axios.delete(`https://api-gateway-lh.onrender.com/admin/ebooks/${id}`,{
+      const response= await axios.delete(`http://localhost:8765/admin/ebooks/${id}`,{
           headers: {
             Authorization: `Bearer ${token}`
           }
