@@ -315,7 +315,7 @@ const handleDownload = () => {
                 </Box>
 
                 <Typography variant="h6" sx={{ mt: 2 }}>
-                  {ebook.price} <Typography component="span" sx={{ textDecoration: "line-through", ml: 1 }}>{ebook.discountPrice}</Typography>
+                  {ebook.discountPrice} <Typography component="span" sx={{ textDecoration: "line-through", ml: 1 }}>{ebook.price}</Typography>
                 </Typography>
 
               <Chip

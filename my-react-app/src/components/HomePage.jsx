@@ -278,7 +278,7 @@ const handleLogout = () => {
                 </Box>
 
                 <Typography variant="h6" sx={{ mt: 2 }}>
-                  {ebook.price} <Typography component="span" sx={{ textDecoration: "line-through", ml: 1 }}>{ebook.discountPrice}</Typography>
+                  {ebook.discountPrice} <Typography component="span" sx={{ textDecoration: "line-through", ml: 1 }}>{ebook.price}</Typography>
                 </Typography>
                      <Link style={{textDecoration:"none",color:"white"}} to={`viewebook/${ebook.id}`}><Button
                     variant="outlined"

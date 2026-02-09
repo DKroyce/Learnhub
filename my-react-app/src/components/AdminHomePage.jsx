@@ -200,7 +200,7 @@ const handleLogout = () => {
                 </Box>
 
                 <Typography variant="h6" sx={{ mt: 2 }}>
-                  {course.price} <Typography component="span" sx={{ textDecoration: "line-through", ml: 1 }}>{course.discountPrice}</Typography>
+                  {course.discountPrice} <Typography component="span" sx={{ textDecoration: "line-through", ml: 1 }}>{course.price}</Typography>
                 </Typography>
                     <Link style={{textDecoration:"none",color:"white"}} to={`/adminedit/${course.id}`}><Button
                     variant="outlined"
