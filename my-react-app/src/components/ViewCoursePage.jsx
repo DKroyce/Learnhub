@@ -149,11 +149,12 @@ const fetchebooksWrappper = async () => {
       fileUrl: fileUrl
     }));
 
-    
+    return fileUrl; 
     
 
   } catch (error) {
     console.error("Error fetching file URL:", error);
+    return null;
   }
 };
 useEffect(() => {
@@ -169,6 +170,7 @@ useEffect(() => {
 
   if (isPurchased === true) {
     fetchebooks();
+    fetchFileUrl();
   }
 }, [isPurchased]);
 
@@ -224,6 +226,10 @@ axios.post("http://localhost:8765/payment/create-order", {
       //   ...prev,
       //   isPurchased: true
       // }));
+      
+  setIsPurchased(true);
+  
+
         fetchFileUrl();
 
             } else {
@@ -241,11 +247,14 @@ axios.post("http://localhost:8765/payment/create-order", {
     rzp.open();
 
   };
-const handleDownload = () => {
-  if (!ebook.fileUrl) {
-    console.error("File URL not available");
+const handleDownload = async () => {
+  const url = await fetchFileUrl();
+
+  if (!url) {
+    alert("Unable to download file");
     return;
   }
+
 
    window.open(ebook.fileUrl, "_blank");
 };
@@ -335,9 +344,9 @@ const handleDownload = () => {
                   fontSize: "1rem",
                   fontWeight: 600,
                 }}
-                onClick={ebook.fileUrl ? handleDownload : handlePayment}
+                onClick={isPurchased? handleDownload : handlePayment}
               >
-               {ebook.fileUrl ? "Download" : "Buy Now"}
+               {isPurchased ? "Download" : "Buy Now"}
               </Button>
             </Card>
           </Grid>
